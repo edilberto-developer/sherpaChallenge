@@ -48,12 +48,12 @@ public class Controller {
     @GET
     @Path("/all")
     @APIResponses(value = {
-            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE)),
-            @APIResponse(responseCode = RestData.CODE_400, description = RestData.DESCRIPTION_400, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_400))
+            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_ALL)),
+            @APIResponse(responseCode = RestData.CODE_500, description = RestData.DESCRIPTION_500, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_500_ALL))
 
     })
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = RestData.SUMMARY, description = RestData.GENERAL_DESCRIPTION)
+    @Operation(summary = RestData.SUMMARY_ALL, description = RestData.SUMMARY_ALL)
     public Response service() {
         LOGGER.info("Payload getAll");
         try {
@@ -79,12 +79,12 @@ public class Controller {
     @GET
     @Path("/one/{id}")
     @APIResponses(value = {
-            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE)),
-            @APIResponse(responseCode = RestData.CODE_400, description = RestData.DESCRIPTION_400, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_400))
+            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_ONE)),
+            @APIResponse(responseCode = RestData.CODE_500, description = RestData.DESCRIPTION_500, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_500_ONE))
 
     })
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = RestData.SUMMARY, description = RestData.GENERAL_DESCRIPTION)
+    @Operation(summary = RestData.SUMMARY_ONE, description = RestData.SUMMARY_ONE)
     public Response findOne(@PathParam("id") long id) {
         LOGGER.info("Payload findOne", id);
         try {
@@ -106,13 +106,13 @@ public class Controller {
     @POST
     @Path("/save")
     @APIResponses(value = {
-            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE)),
-            @APIResponse(responseCode = RestData.CODE_400, description = RestData.DESCRIPTION_400, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_400))
+            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_ADD)),
+            @APIResponse(responseCode = RestData.CODE_500, description = RestData.DESCRIPTION_500, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_500_ADD))
 
     })
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = RestData.SUMMARY, description = RestData.GENERAL_DESCRIPTION)
-    @RequestBody(content = @Content(mediaType = RestData.CONTENT_TYPE, schema = @Schema(type = SchemaType.OBJECT), example = RestData.REQUEST))
+    @Operation(summary = RestData.SUMMARY_ADD, description = RestData.SUMMARY_ADD)
+    @RequestBody(content = @Content(mediaType = RestData.CONTENT_TYPE, schema = @Schema(type = SchemaType.OBJECT), example = RestData.REQUEST_ADD))
     public Response add(PostEntity post) {
         LOGGER.info("Payload save:", post);
         try {
@@ -134,13 +134,13 @@ public class Controller {
     @PUT
     @Path("/update/{id}")
     @APIResponses(value = {
-            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE)),
-            @APIResponse(responseCode = RestData.CODE_400, description = RestData.DESCRIPTION_400, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_400))
+            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_UPDATE)),
+            @APIResponse(responseCode = RestData.CODE_500, description = RestData.DESCRIPTION_500, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_500_UPDATE))
 
     })
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = RestData.SUMMARY, description = RestData.GENERAL_DESCRIPTION)
-    @RequestBody(content = @Content(mediaType = RestData.CONTENT_TYPE, schema = @Schema(type = SchemaType.OBJECT), example = RestData.REQUEST))
+    @Operation(summary = RestData.SUMMARY_UPDATE, description = RestData.SUMMARY_UPDATE)
+    @RequestBody(content = @Content(mediaType = RestData.CONTENT_TYPE, schema = @Schema(type = SchemaType.OBJECT), example = RestData.REQUEST_UPDATE))
     public Response update(@PathParam("id") long id, @RequestBody PostUpdateBean post) {
         LOGGER.info("Payload update:", post);
 
@@ -163,13 +163,12 @@ public class Controller {
     @DELETE
     @Path("/delete/{id}")
     @APIResponses(value = {
-            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE)),
-            @APIResponse(responseCode = RestData.CODE_400, description = RestData.DESCRIPTION_400, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_400))
+            @APIResponse(responseCode = RestData.CODE_200, description = RestData.DESCRIPTION, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_DELETE)),
+            @APIResponse(responseCode = RestData.CODE_500, description = RestData.DESCRIPTION_500, content = @Content(mediaType = RestData.CONTENT_TYPE, example = RestData.EXAMPLE_500_DELETE))
 
     })
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = RestData.SUMMARY, description = RestData.GENERAL_DESCRIPTION)
-    @RequestBody(content = @Content(mediaType = RestData.CONTENT_TYPE, schema = @Schema(type = SchemaType.OBJECT), example = RestData.REQUEST))
+    @Operation(summary = RestData.SUMMARY_DELETE, description = RestData.SUMMARY_DELETE)
     public Response remove(@PathParam("id") long id) {
         LOGGER.info("Payload delete:", id);
 

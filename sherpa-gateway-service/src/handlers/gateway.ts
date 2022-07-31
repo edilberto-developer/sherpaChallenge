@@ -14,13 +14,13 @@ const getFinalUrl = (queryString: string[], endpoint: string) => {
 
 export const gateway = async (request: Request, env: any) => {
 
-    if (request.method === 'OPTIONS') {
+    if (request.method === 'OPTIONS' || request.method === 'HEAD') {
         return new Response(null, {
-            status: 204,
+            status: 200,
             headers: {
                 'Access-Control-Allow-Credentials': 'true',
                 'Access-Control-Allow-Methods': '*',
-                'Access-Control-Allow-Origin': 'http://localhost:3000',
+                'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': '*'
             }
         });
