@@ -1,0 +1,15 @@
+name = "sherpa-gateway-service"
+main = "src/index.ts"
+compatibility_date = "2022-07-25"
+account_id="2bf86808c27ccce4fac0c82b1d3feb2f"
+node_compat = true
+
+[vars]
+ENDPOINT_USER = "https://sherpa-user-service.sherpa-test.workers.dev/api/user"
+ENDPOINT_POST = "https://sherpa-post-service.sherpa-test.workers.dev/api/post"
+KEY_SIGN_TOKEN = "sherpa"
+
+[env]
+services = [
+  { binding = "gatewayUser", service = "sherpa-user", environment = "production" }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "sherpa-gateway-service",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.14.1",
+    "@types/crypto-js": "^4.1.1",
+    "@types/jsonwebtoken": "^8.5.8",
+    "typescript": "^4.7.4",
+    "wrangler": "2.0.22"
+  },
+  "private": true,
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish"
+  },
+  "dependencies": {
+    "@tsndr/cloudflare-worker-jwt": "^2.0.1",
+    "crypto-js": "^4.1.1",
+    "itty-router": "^2.6.1"
+  }
+}

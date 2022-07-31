@@ -1,0 +1,9 @@
+name = "sherpa-user-service"
+main = "src/index.ts"
+compatibility_date = "2022-07-25"
+account_id="2bf86808c27ccce4fac0c82b1d3feb2f"
+node_compat = true
+
+[vars]
+ENDPOINT_USER = "https://user-persistence-dot-sherpa-357320.wl.r.appspot.com/api/user/persistence"
+KEY_SIGN_TOKEN = "sherpa"
